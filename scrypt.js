@@ -17,7 +17,7 @@ console.log(formatDate(dayOfBirth));
 function getDiffDays(firstDate, secondDate) {
   const startDate= new Date(firstDate);
   const endDate= new Date(secondDate);
-
+const DAY_IN_MILLISECONDS=86400000;
   if ( startDate.toString()=='Invalid Date'||endDate.toString()=='Invalid Date') {
 
 	return console.error('Invalid date')
@@ -25,7 +25,7 @@ function getDiffDays(firstDate, secondDate) {
 	} else if (startDate > endDate) {
    return console.error("your start date is later than end");
   }
-    else {return (Date.parse(secondDate) - Date.parse(firstDate)) / 86400000;
+    else {return (Date.parse(secondDate) - Date.parse(firstDate)) / DAY_IN_MILLISECONDS;
 }
   }
 
@@ -37,7 +37,8 @@ console.log(getDiffDays("2021-01-02", "2020-03-15")); // Error: your start date 
 //3
 function isWeekend(date) {
   let day = new Date(date);
-  return day.getDay() === 6 || day.getDay() === 0;
+  let checkWeekend=day.getDay()
+  return checkWeekend === 6 || checkWeekend === 0;
 }
 
 console.log(isWeekend("2022-02-12"));
